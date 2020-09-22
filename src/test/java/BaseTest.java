@@ -1,4 +1,6 @@
 import com.stetsiv.lsjpa.Container;
+import com.stetsiv.lsjpa.service.ProductAuditService;
+import com.stetsiv.lsjpa.service.ProductService;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -9,7 +11,7 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 
 
 @EnableAutoConfiguration
-@ContextConfiguration(classes = {Container.class})
+@ContextConfiguration(classes = {Container.class, ProductService.class, ProductAuditService.class})
 @EnableJpaRepositories(basePackages = { "com.stetsiv.lsjpa.repository"})
 @EntityScan("com.stetsiv.lsjpa.entity")
 @DataJpaTest
