@@ -28,8 +28,9 @@ public class Product {
         return name;
     }
 
-    public void setName(String name) {
+    public Product setName(String name) {
         this.name = name;
+        return this;
     }
 
     public Double getPrice() {

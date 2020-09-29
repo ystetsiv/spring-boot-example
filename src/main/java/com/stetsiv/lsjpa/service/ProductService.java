@@ -11,21 +11,21 @@ public class ProductService {
     private ProductRepository productRepository;
     private ProductAuditService productAuditService;
 
+
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
     @Autowired
     public ProductService(ProductRepository productRepository, ProductAuditService productAuditService) {
         this.productAuditService = productAuditService;
         this.productRepository = productRepository;
     }
 
-    @Autowired
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
-
     public Product saveWithAudit(Product product){
         Product newProduct = productRepository.save(product);
         productAuditService.logProduct(product);
-        return  newProduct;
+        return newProduct;
     }
 
     public Product simpleSave(Product product){

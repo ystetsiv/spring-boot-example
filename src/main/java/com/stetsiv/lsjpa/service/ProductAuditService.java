@@ -9,19 +9,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductAuditService {
 
-
-    private ProductAuditRepository repository;
+    private ProductAuditRepository productAuditRepository;
 
     @Autowired
-    public ProductAuditService(ProductAuditRepository repository) {
-        this.repository = repository;
+    public ProductAuditService(ProductAuditRepository productAuditRepository) {
+        this.productAuditRepository = productAuditRepository;
     }
 
     public void logProduct(Product product) {
         ProductAudit audit = new ProductAudit();
         audit.setId(product.getId());
-        repository.save(audit);
-
+        productAuditRepository.save(audit);
 
     }
 }
